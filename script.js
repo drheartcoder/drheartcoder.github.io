@@ -11,12 +11,23 @@ function setupLinkHover(containerSelector, arrowBlack, arrowWhite) {
 
     if (!arrow && !title) return;
 
+    let originalFontSize = null;
+
     container.addEventListener('mouseenter', () => {
       if (arrow) {
         arrow.classList.replace(arrowBlack, arrowWhite);
       }
       if (title) {
-        title.style.textDecoration = 'underline';
+        // Store original font size only once
+        if (!originalFontSize) {
+          originalFontSize = window.getComputedStyle(title).fontSize;
+        }
+
+        // Convert to number and add 1px
+        const newSize = (parseFloat(originalFontSize) + 1) + 'px';
+
+        title.style.setProperty('text-decoration', 'underline', 'important');
+        title.style.setProperty('font-size', newSize, 'important');
       }
     });
 
@@ -24,12 +35,17 @@ function setupLinkHover(containerSelector, arrowBlack, arrowWhite) {
       if (arrow) {
         arrow.classList.replace(arrowWhite, arrowBlack);
       }
-      if (title) {
-        title.style.textDecoration = 'none';
+      if (title && originalFontSize) {
+        title.style.setProperty('text-decoration', 'none', 'important');
+        title.style.setProperty('font-size', originalFontSize, 'important');
       }
     });
   });
 }
+
+setupLinkHover('.link-container', 'top-right-corner-arrow-black', 'top-right-corner-arrow-white');
+setupLinkHover('.big-link-container', 'big-top-right-corner-arrow-black', 'big-top-right-corner-arrow-white');
+
 
 setupLinkHover('.link-container', 'top-right-corner-arrow-black', 'top-right-corner-arrow-white');
 setupLinkHover('.big-link-container', 'big-top-right-corner-arrow-black', 'big-top-right-corner-arrow-white');
