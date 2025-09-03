@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Recent News Carousel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #faf6e6;
+    }
+    .carousel-container {
+      position: relative;
+      max-width: 100%;
+      padding: 2rem;
+    }
+    .carousel-wrapper {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      gap: 2rem;
+      padding-bottom: 2.5rem;
+    }
+    .carousel-card {
+      background: #fdf3d6;
+      min-width: 300px;
+      flex: 0 0 auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      padding: 1rem;
+      text-align: left;
+    }
+    .carousel-card img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      height: 150px;
+      object-fit: cover;
+      background: #eee;
+    }
+    .carousel-controls {
+      position: absolute;
+      bottom: 1rem;
+      right: 2rem;
+      display: flex;
+      gap: 1rem;
+    }
+    .carousel-button {
+      background: #fff;
+      border: 2px solid #222;
+      color: #222;
+      border-radius: 4px;
+      padding: 0.5rem 0.75rem;
+      font-size: 1.4rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .carousel-button:hover {
+      background: #fdf3d6;
+    }
+    @media (max-width: 550px) {
+      .carousel-card {
+        min-width: 80vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="carousel-container">
+    <h4 class="mb-3 ms-2">RECENT NEWS</h4>
+    <div class="carousel-wrapper" id="newsCarousel">
+      <!-- Card 1 -->
+      <div class="carousel-card">
+        <img src="https://via.placeholder.com/300x150?text=Check+Vote" alt="Vote Card">
+        <div><strong>Lorem ipsum dolor sit amet</strong>, consectetur Lorem ipsum dolor ipsum dolor</div>
+      </div>
+      <!-- Card 2 -->
+      <div class="carousel-card">
+        <img src="https://via.placeholder.com/300x150?text=Warehouse" alt="Warehouse Card">
+        <div><strong>Lorem ipsum dolor sit amet</strong>, consectetur Lorem ipsum dolor ipsum dolor</div>
+      </div>
+      <!-- Card 3 -->
+      <div class="carousel-card">
+        <img src="https://via.placeholder.com/300x150?text=Library" alt="Library Card">
+        <div><strong>Lorem ipsum dolor sit amet</strong>, consectetur Lorem ipsum dolor ipsum dolor</div>
+      </div>
+      <!-- Card 4 -->
+      <div class="carousel-card">
+        <img src="https://via.placeholder.com/300x150?text=Art+Gallery" alt="Art Gallery Card">
+        <div><strong>Lorem ipsum dolor sit amet</strong>, consectetur Lorem ipsum dolor ipsum dolor</div>
+      </div>
+      <!-- Add more cards as needed -->
+       <!-- Card 1 -->
+      <div class="carousel-card">
+        <img src="https://via.placeholder.com/300x150?text=Check+Vote" alt="Vote Card">
+        <div><strong>Lorem ipsum dolor sit amet</strong>, consectetur Lorem ipsum dolor ipsum dolor</div>
+      </div>
+      <!-- Card 2 -->
+      <div class="carousel-card">
+        <img src="https://via.placeholder.com/300x150?text=Warehouse" alt="Warehouse Card">
+        <div><strong>Lorem ipsum dolor sit amet</strong>, consectetur Lorem ipsum dolor ipsum dolor</div>
+      </div>
+      <!-- Card 3 -->
+      <div class="carousel-card">
+        <img src="https://via.placeholder.com/300x150?text=Library" alt="Library Card">
+        <div><strong>Lorem ipsum dolor sit amet</strong>, consectetur Lorem ipsum dolor ipsum dolor</div>
+      </div>
+      <!-- Card 4 -->
+      <div class="carousel-card">
+        <img src="https://via.placeholder.com/300x150?text=Art+Gallery" alt="Art Gallery Card">
+        <div><strong>Lorem ipsum dolor sit amet</strong>, consectetur Lorem ipsum dolor ipsum dolor</div>
+      </div>
+    </div>
+    <div class="carousel-controls">
+      <button class="carousel-button" id="scrollLeft">&#x25C0;</button>
+      <button class="carousel-button" id="scrollRight">&#x25B6;</button>
+    </div>
+  </section>
+
+  <script>
+    const carousel = document.getElementById('newsCarousel');
+    document.getElementById('scrollLeft').onclick = () => {
+      carousel.scrollBy({ left: -320, behavior: 'smooth' });
+    };
+    document.getElementById('scrollRight').onclick = () => {
+      carousel.scrollBy({ left: 320, behavior: 'smooth' });
+    };
+  </script>
+</body>
+</html>
